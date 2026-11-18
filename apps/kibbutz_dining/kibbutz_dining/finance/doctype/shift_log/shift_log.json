@@ -1,0 +1,60 @@
+{
+ "doctype": "DocType",
+ "name": "Shift Log",
+ "module": "finance",
+ "istable": 1,
+ "editable_grid": 1,
+ "fields": [
+  {
+   "fieldname": "log_type",
+   "label": "Type",
+   "fieldtype": "Select",
+   "options": "Open\nClose\nSale\nOverdraft\nRefund\nStockout\nPrice Update",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "timestamp",
+   "label": "Time",
+   "fieldtype": "Datetime",
+   "default": "Now",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sale",
+   "label": "Sale",
+   "fieldtype": "Link",
+   "options": "Sale"
+  },
+  {
+   "fieldname": "daily_menu_item",
+   "label": "Daily Menu Item",
+   "fieldtype": "Link",
+   "options": "Daily Menu Item"
+  },
+  {
+   "fieldname": "description",
+   "label": "Description",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amount",
+   "label": "Amount (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2
+  },
+  {
+   "fieldname": "user",
+   "label": "User",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "permissions": [],
+ "sort_field": "timestamp",
+ "sort_order": "DESC",
+ "doctype": "DocType"
+}

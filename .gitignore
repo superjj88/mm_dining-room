@@ -1,0 +1,17 @@
+frappe_docker/
+.devcontainer/
+development/
+.devcontainer/
+development/
+frappe-bench/
+node_modules/
+*.pyc
+__pycache__/
+*.egg-info/
+.venv/
+.env
+*.log
+*.sqlite3
+frontend/*/dist/
+sites/*/private/
+sites/*/site_config.backup.json

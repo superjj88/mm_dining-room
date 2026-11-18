@@ -1,0 +1,156 @@
+{
+ "doctype": "DocType",
+ "name": "Shift",
+ "module": "finance",
+ "naming_rule": "Expression",
+ "autoname": "format:{shift_date}-{shift_type}",
+ "is_submittable": 0,
+ "track_changes": 1,
+ "fields": [
+  {
+   "fieldname": "shift_date",
+   "label": "Shift Date",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "shift_type",
+   "label": "Shift",
+   "fieldtype": "Select",
+   "options": "Lunch\nDinner",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Open\nClosed",
+   "default": "Open",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "daily_menu",
+   "label": "Daily Menu",
+   "fieldtype": "Link",
+   "options": "Daily Menu",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opened_at",
+   "label": "Opened At",
+   "fieldtype": "Datetime",
+   "default": "Now",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opened_by",
+   "label": "Opened By",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_at",
+   "label": "Closed At",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_by",
+   "label": "Closed By",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opening_cash",
+   "label": "Opening Cash (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "default": "0"
+  },
+  {
+   "fieldname": "closing_cash",
+   "label": "Closing Cash (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2
+  },
+  {
+   "fieldname": "expected_cash",
+   "label": "Expected Cash (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cash_variance",
+   "label": "Cash Variance (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_sales",
+   "label": "Total Sales (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_transactions",
+   "label": "Total Transactions",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overdraft_sales",
+   "label": "Overdraft Sales",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_total",
+   "label": "Refund Total (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_report",
+   "label": "Variance Notes",
+   "fieldtype": "Text"
+  },
+  {
+   "fieldname": "section_break_logs",
+   "fieldtype": "Section Break",
+   "label": "Shift Logs"
+  },
+  {
+   "fieldname": "logs",
+   "label": "Logs",
+   "fieldtype": "Table",
+   "options": "Shift Log"
+  }
+ ],
+ "sort_field": "shift_date",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Stock User",
+   "read": 1,
+   "write": 1,
+   "create": 1
+  }
+ ],
+ "doctype": "DocType"
+}

@@ -1,0 +1,52 @@
+{
+ "doctype": "DocType",
+ "name": "Menu Item Ingredient",
+ "module": "menu",
+ "istable": 1,
+ "editable_grid": 1,
+ "fields": [
+  {
+   "fieldname": "raw_item",
+   "label": "Raw Item",
+   "fieldtype": "Link",
+   "options": "Raw Item",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "qty",
+   "label": "Quantity",
+   "fieldtype": "Float",
+   "reqd": 1,
+   "in_list_view": 1,
+   "precision": 4
+  },
+  {
+   "fieldname": "uom",
+   "label": "UOM",
+   "fieldtype": "Link",
+   "options": "UOM",
+   "reqd": 1,
+   "in_list_view": 1,
+   "default": "Kg"
+  },
+  {
+   "fieldname": "wastage_percent",
+   "label": "Wastage %",
+   "fieldtype": "Percent",
+   "default": "0",
+   "description": "Shrinkage/wastage factor (e.g. 20% for bone-in meat)"
+  },
+  {
+   "fieldname": "cost",
+   "label": "Cost (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1
+  }
+ ],
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "doctype": "DocType"
+}

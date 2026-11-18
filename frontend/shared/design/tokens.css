@@ -1,0 +1,86 @@
+/* ─────────────────────────────────────────────────────────
+   Kibbutz Dining — shared design tokens (light theme)
+   Imported by every frontend app. Keep values in one place.
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* ── Surfaces ── */
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --surface-3: #e2e8f0;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* ── Text ── */
+  --text: #0f172a;
+  --muted: #64748b;
+  --muted-strong: #475569;
+
+  /* ── Brand ── */
+  --accent: #0d9488;
+  --accent-dark: #0f766e;
+  --accent-soft: #ccfbf1;
+  --accent-contrast: #ffffff;
+
+  /* ── Status ── */
+  --ok: #16a34a;
+  --ok-bg: #dcfce7;
+  --ok-text: #15803d;
+  --warn: #d97706;
+  --warn-bg: #fef3c7;
+  --warn-text: #b45309;
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+  --danger-text: #b91c1c;
+  --info: #2563eb;
+  --info-bg: #dbeafe;
+
+  /* ── Price tiers ── */
+  --tier-member: #2563eb;
+  --tier-employee: #7c3aed;
+  --tier-guest: #c2410c;
+
+  /* ── Typography ── */
+  --font-sans: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --fs-xs: 0.8125rem;   /* 13px */
+  --fs-sm: 0.875rem;    /* 14px */
+  --fs-base: 1rem;      /* 16px */
+  --fs-md: 1.125rem;    /* 18px */
+  --fs-lg: 1.375rem;    /* 22px */
+  --fs-xl: 1.75rem;     /* 28px */
+  --fs-2xl: 2.25rem;    /* 36px */
+  --fs-3xl: 3rem;       /* 48px */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ── Spacing scale ── */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+
+  /* ── Radius ── */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  /* ── Shadows ── */
+  --sh-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+  --sh-2: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.06);
+  --sh-3: 0 12px 32px rgba(15, 23, 42, 0.14);
+
+  /* ── Layout ── */
+  --container: 1440px;
+  --header-h: 64px;
+}

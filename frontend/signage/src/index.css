@@ -1,0 +1,183 @@
+@import "../../shared/design/tokens.css";
+@import "../../shared/design/base.css";
+
+/* ═══════════════════════════════════════════════
+   Signage — light menu-board, fluid for large screens
+   (fills 1920×1080 up to 4K via clamp/vw)
+   ═══════════════════════════════════════════════ */
+
+.signage-root {
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(12px, 1.2vw, 24px);
+  padding: clamp(16px, 1.6vw, 32px);
+  background: var(--bg);
+}
+
+/* ─── Header ─── */
+.signage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: clamp(12px, 1vw, 22px) clamp(20px, 1.8vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+}
+.signage-header h1 {
+  font-size: clamp(1.5rem, 2vw, 2.6rem);
+  color: var(--accent-dark);
+  letter-spacing: -0.01em;
+}
+.header-meta {
+  display: flex;
+  gap: clamp(16px, 2vw, 40px);
+  align-items: center;
+  font-size: clamp(1rem, 1.2vw, 1.6rem);
+  color: var(--muted-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.connection-dot {
+  width: clamp(10px, 0.9vw, 16px);
+  height: clamp(10px, 0.9vw, 16px);
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+.connection-dot.connected { background: var(--ok); }
+.connection-dot.disconnected { background: var(--danger); }
+
+/* ─── Menu grid ─── */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 13vw, 300px), 1fr));
+  gap: clamp(12px, 1.2vw, 22px);
+  overflow-y: auto;
+  /* fill the board: rows stretch to use the full height, but never shrink
+     below their content (long dish names) thanks to the auto minimum */
+  grid-auto-rows: minmax(auto, 1fr);
+  align-content: stretch;
+  padding-inline-end: 4px;
+}
+
+.dish-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(16px, 1.4vw, 28px);
+  border-radius: var(--r-lg);
+  border: 3px solid transparent;
+  background: var(--surface);
+  box-shadow: var(--sh-1);
+  text-align: center;
+  gap: clamp(8px, 0.9vw, 16px);
+  min-height: clamp(160px, 18vh, 240px);
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s, transform 0.15s;
+}
+
+.dish-card.available { border-color: var(--ok); }
+.dish-card.low-stock { border-color: var(--warn); background: var(--warn-bg); }
+.dish-card.sold-out { border-color: var(--danger); background: var(--danger-bg); }
+
+.dish-card.sold-out .dish-name {
+  text-decoration: line-through;
+  color: var(--danger-text);
+  opacity: 0.85;
+}
+
+.dish-status-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+.dish-card.available .dish-status-bar { background: var(--ok); }
+.dish-card.low-stock .dish-status-bar { background: var(--warn); }
+.dish-card.sold-out .dish-status-bar { background: var(--danger); }
+
+.dish-name {
+  font-size: clamp(1.1rem, 1.4vw, 1.8rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sold-out-banner {
+  background: var(--danger);
+  color: #fff;
+  font-weight: var(--fw-bold);
+  font-size: clamp(0.9rem, 1.1vw, 1.35rem);
+  padding: clamp(4px, 0.5vw, 10px) clamp(8px, 0.8vw, 16px);
+  border-radius: var(--r-sm);
+  letter-spacing: 0.04em;
+}
+
+.prices {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 1.6vw, 32px);
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.price-label {
+  font-size: clamp(0.7rem, 0.85vw, 1rem);
+  color: var(--muted);
+  font-weight: var(--fw-semibold);
+}
+.price-value {
+  font-weight: var(--fw-bold);
+  font-size: clamp(1rem, 1.3vw, 1.6rem);
+  font-variant-numeric: tabular-nums;
+}
+.price-member { color: var(--tier-member); }
+.price-employee { color: var(--tier-employee); }
+.price-guest { color: var(--tier-guest); }
+
+.balance-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: clamp(0.85rem, 1vw, 1.2rem);
+  color: var(--muted-strong);
+}
+.balance-num {
+  font-weight: var(--fw-bold);
+  font-size: clamp(1.1rem, 1.5vw, 1.9rem);
+  font-variant-numeric: tabular-nums;
+}
+.balance-num.positive { color: var(--ok-text); }
+.balance-num.low { color: var(--warn-text); }
+.balance-num.zero { color: var(--danger-text); }
+
+/* ─── Empty / loading ─── */
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--sp-4);
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
+  color: var(--muted);
+}
+
+@keyframes pulse-red {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+.dish-card.sold-out .sold-out-banner {
+  animation: pulse-red 1.6s ease-in-out infinite;
+}

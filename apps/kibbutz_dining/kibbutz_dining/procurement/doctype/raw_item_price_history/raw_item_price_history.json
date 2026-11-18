@@ -1,0 +1,97 @@
+{
+ "doctype": "DocType",
+ "name": "Raw Item Price History",
+ "module": "procurement",
+ "naming_rule": "By fieldname",
+ "autoname": "hash",
+ "is_submittable": 0,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "fields": [
+  {
+   "fieldname": "raw_item",
+   "label": "Raw Item",
+   "fieldtype": "Link",
+   "options": "Raw Item",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "supplier",
+   "label": "Supplier",
+   "fieldtype": "Link",
+   "options": "Supplier",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "purchase_date",
+   "label": "Purchase Date",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "rate_per_uom",
+   "label": "Rate per UOM (ILS)",
+   "fieldtype": "Currency",
+   "reqd": 1,
+   "in_list_view": 1,
+   "precision": 2
+  },
+  {
+   "fieldname": "uom",
+   "label": "UOM",
+   "fieldtype": "Link",
+   "options": "UOM",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "quantity",
+   "label": "Quantity",
+   "fieldtype": "Float",
+   "precision": 3
+  },
+  {
+   "fieldname": "total_amount",
+   "label": "Total Amount (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_by",
+   "label": "Modified By",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "label": "Notes",
+   "fieldtype": "Small Text"
+  }
+ ],
+ "sort_field": "purchase_date",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Stock Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1
+  }
+ ],
+ "sort_order": "DESC",
+ "doctype": "DocType"
+}

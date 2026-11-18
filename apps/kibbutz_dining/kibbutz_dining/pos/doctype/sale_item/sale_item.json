@@ -1,0 +1,67 @@
+{
+ "doctype": "DocType",
+ "name": "Sale Item",
+ "module": "pos",
+ "istable": 1,
+ "editable_grid": 1,
+ "fields": [
+  {
+   "fieldname": "daily_menu_item",
+   "label": "Daily Menu Item",
+   "fieldtype": "Link",
+   "options": "Daily Menu Item",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "dish_name",
+   "label": "Dish",
+   "fieldtype": "Data",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "qty",
+   "label": "Qty",
+   "fieldtype": "Int",
+   "default": "1",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "unit_price",
+   "label": "Unit Price (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Price snapshot at time of sale — historical integrity"
+  },
+  {
+   "fieldname": "amount",
+   "label": "Amount (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "balance_at_sale",
+   "label": "Balance at Sale",
+   "fieldtype": "Int",
+   "read_only": 1,
+   "description": "balance_portions before this sale item was processed"
+  },
+  {
+   "fieldname": "was_overdraft",
+   "label": "Overdraft",
+   "fieldtype": "Check",
+   "default": "0",
+   "read_only": 1
+  }
+ ],
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "doctype": "DocType"
+}

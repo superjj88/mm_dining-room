@@ -1,0 +1,137 @@
+{
+ "doctype": "DocType",
+ "name": "Sale",
+ "module": "pos",
+ "naming_rule": "By fieldname",
+ "autoname": "hash",
+ "is_submittable": 0,
+ "track_changes": 1,
+ "fields": [
+  {
+   "fieldname": "diner",
+   "label": "Diner",
+   "fieldtype": "Link",
+   "options": "Diner",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "diner_type",
+   "label": "Diner Type",
+   "fieldtype": "Select",
+   "options": "Member\nEmployee\nGuest",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sale_date",
+   "label": "Sale Date",
+   "fieldtype": "Datetime",
+   "reqd": 1,
+   "default": "Now",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "daily_menu",
+   "label": "Daily Menu",
+   "fieldtype": "Link",
+   "options": "Daily Menu",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "shift",
+   "label": "Shift",
+   "fieldtype": "Select",
+   "options": "Lunch\nDinner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shift_ref",
+   "label": "Shift Record",
+   "fieldtype": "Link",
+   "options": "Shift",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "payment_method",
+   "label": "Payment Method",
+   "fieldtype": "Select",
+   "options": "Cash\nCredit Card\nMember Account\nComplimentary",
+   "default": "Cash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items",
+   "label": "Items",
+   "fieldtype": "Table",
+   "options": "Sale Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "label": "Total (ILS)",
+   "fieldtype": "Currency",
+   "precision": 2,
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "was_overdraft_sale",
+   "label": "Overdraft Sale",
+   "fieldtype": "Check",
+   "default": "0",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Set to 1 if any item was sold when balance_portions <= 0"
+  },
+  {
+   "fieldname": "idempotency_key",
+   "label": "Idempotency Key",
+   "fieldtype": "Data",
+   "unique": 1,
+   "hidden": 1,
+   "description": "UUIDv4 key to prevent duplicate charges"
+  },
+  {
+   "fieldname": "identification_method",
+   "label": "ID Method",
+   "fieldtype": "Select",
+   "options": "RFID\nKeypad\nGuest",
+   "read_only": 1
+  },
+  {
+   "fieldname": "badge_id",
+   "label": "Badge ID",
+   "fieldtype": "Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Completed\nRefunded\nCancelled",
+   "default": "Completed",
+   "in_list_view": 1
+  }
+ ],
+ "sort_field": "sale_date",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Stock User",
+   "read": 1,
+   "create": 1
+  }
+ ],
+ "sort_order": "DESC",
+ "doctype": "DocType"
+}
